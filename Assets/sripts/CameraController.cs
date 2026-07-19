@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f; 
+    [SerializeField] private float speed = 0.2f;
+
     private float currentPosX;
+    private Vector3 velocity = Vector3.zero;
 
     private void Update()
     {
-        Vector3 targetPosition = new Vector3(currentPosX, transform.position.y, transform.position.z);
-        
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        transform.position = Vector3.SmoothDamp(
+            transform.position,
+            new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);
     }
 
-    public void MoveToNewRoom(Transform _newRoom)
+    public void MoveToNewRoom(Transform newRoom)
     {
-        currentPosX = _newRoom.position.x;
+        currentPosX = newRoom.position.x;
     }
 }

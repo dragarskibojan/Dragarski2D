@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    // МОРА ДА ПИШУВА protected A НЕ private!
+    [SerializeField] protected float damage = 1f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {

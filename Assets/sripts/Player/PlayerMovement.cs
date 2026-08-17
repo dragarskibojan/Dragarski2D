@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement & Jumping")]
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float jumpForce = 7.5f;
 
     [Header("Wall Mechanics")]
     [SerializeField] private float climbSpeed = 5f; 
